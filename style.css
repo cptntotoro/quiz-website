@@ -9,12 +9,20 @@
 
 body {
     color: #fff;
+    background: #09001d;
 }
 
 .main {
     background: url("background.jpg") center no-repeat;
     min-height: 100vh;
     background-size: cover;
+    transition: .3s ease;
+    pointer-events: auto;
+}
+
+.main.active {
+    filter: blur(15px);
+    pointer-events: none;
 }
 
 /* ------ HEADER ------ */
@@ -46,7 +54,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     margin-left: 15px;
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .navbar a:hover {
@@ -96,11 +104,94 @@ body {
     color: #000;
     mix-blend-mode: lighten;
     cursor: pointer;
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .home-content .start-btn:hover {
     background: #000;
     color: #fff;
     box-shadow: none;
+}
+
+/* ------ POP-UP INFO ------ */
+
+.popup-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.9);
+    width: 500px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.popup-info.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-info h2 {
+    font-size: 50px;
+    color: #0A0911;
+}
+
+.popup-info .info {
+    display: inline-block;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.popup-info .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #999;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+
+.popup-info .btn-group .info-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1) {
+    background: transparent;
+    border: 1px solid #5A3A6C;
+    color: #5A3A6C;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1):hover {
+    background: #5A3A6C;
+    color: #fff;
+}
+
+.popup-info .btn-group .info-btn:nth-child(2) {
+    background: #e05330;
+    border: 1px solid #e05330;
+    color: #fff;
+}
+
+.popup-info .btn-group .info-btn:nth-child(2):hover {
+    background: #B0331D;
+    border: 1px solid #B0331D;
+    color: #fff;
 }
