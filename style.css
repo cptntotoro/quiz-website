@@ -39,6 +39,8 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    /*hide header*/
+    opacity: 0;
 }
 
 .logo {
@@ -59,7 +61,7 @@ body {
 }
 
 .navbar a:hover {
-    color: #c40094;
+    color: #e05330;
 }
 
 /* ------ HOME ------ */
@@ -296,12 +298,12 @@ body {
 }
 
 .option-list .option.correct {
-    /*color: #00c049;*/
+    color: #00c049;
     border-color: #00c949;
 }
 
 .option-list .option.incorrect {
-    /*color: #ff1010;*/
+    color: #ff1010;
     border-color: #ff1010;
 }
 
@@ -338,9 +340,10 @@ body {
     transition: .5s;
 }
 
-.quiz-footer .next-btn:hover {
+.quiz-footer .next-btn.active {
+    pointer-events: auto;
     background: #e05330;
-    border-color: #B0331D;
+    color: #ffffff;
 }
 
 .quiz-footer .next-btn.active:hover {
@@ -385,7 +388,7 @@ body {
     align-items: center;
     width: 300px;
     background: transparent;
-    margin: 20px 0 40px;
+    margin: 30px 0 40px;
 }
 
 .percent-container .circular-progress {
@@ -417,7 +420,7 @@ body {
 .percent-container .score-text {
     font-size: 26px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .result-box .buttons {
@@ -433,22 +436,23 @@ body {
     border-radius: 6px;
     color: #fff;
     font-weight: 600;
-    margin: 0 20px;
+    margin: 0 40px;
     cursor: pointer;
 }
 
-.buttons button:nth-child(1):hover {
-    background: #e05330;
-    border-color: #B0331D;
+.buttons button:nth-child(1) {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
 }
 
-.buttons button:nth-child(2) {
-    background: transparent;
-    /*color: ;*/
+.buttons button:nth-child(1):hover {
+    background: #fff;
+    border: 2px solid #fff;
+    color: #5A3A6C;
 }
 
 .buttons button:nth-child(2):hover {
-    background: #e05330;
-    border: 1px solid #e05330;
-    /*color: #fff;*/
+    background: #B0331D;
+    border: 1px solid #B0331D;
 }

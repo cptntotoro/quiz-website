@@ -53,5 +53,5 @@ let questions = [
             "C. Venus",
             "D. Saturn"
         ]
-    },
+    }
 ]

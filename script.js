@@ -8,6 +8,8 @@ const quizBox = document.querySelector('.quiz-box');
 const nextBtn = document.querySelector('.next-btn');
 const optionList = document.querySelector('.option-list');
 const resultBox = document.querySelector('.result-box');
+const tryAgainBtn = document.querySelector('.try-again-btn');
+const homepageBtn = document.querySelector('.homepage-btn');
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
@@ -28,6 +30,28 @@ continueBtn.onclick = () => {
     displayQuestions(0);
     questionCounter(1);
     updateHeaderScore();
+}
+
+tryAgainBtn.onclick = () => {
+    quizBox.classList.add('active');
+    resultBox.classList.remove('active');
+
+    nextBtn.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+
+    displayQuestions(questionCount);
+    questionCounter(questionNumb);
+
+    updateHeaderScore();
+}
+
+homepageBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    resultBox.classList.remove('active');
+    nextBtn.classList.remove('active');
 }
 
 let questionCount = 0;
@@ -80,7 +104,7 @@ function checkAnswer(answer) {
     } else {
         answer.classList.add('incorrect');
 
-        // if selected option is incorrect, highlight the right one too
+        // if selected option is incorrect, display the right one too
 
         for (let i = 0; i < allOptions; i++) {
             if (optionList.children[i].textContent == correctAnswer) {
@@ -111,4 +135,25 @@ function updateHeaderScore() {
 function displayResultBox() {
     quizBox.classList.remove('active');
     resultBox.classList.add('active');
+
+    let scoreText = document.querySelector('.score-text');
+    scoreText.textContent = `You scored ${userScore} out of ${questions.length}`;
+
+    let circularProgress = document.querySelector('.circular-progress');
+    let progressValue = document.querySelector('.progress-value');
+
+    let progressStartValue = -1;
+    let progressEndValue = (userScore / questions.length) * 100;
+    let speed = 20;
+
+    let progress = setInterval(() => {
+        progressStartValue++;
+
+        progressValue.textContent = `${progressStartValue}%`;
+        circularProgress.style.background = `conic-gradient(#e05330 ${progressStartValue * 3.6}deg, rgba(255, 255, 255, .1) 0deg)`;
+
+        if (progressStartValue == progressEndValue) {
+            clearInterval(progress);
+        }
+    }, speed)
 }
