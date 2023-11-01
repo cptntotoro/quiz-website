@@ -10,6 +10,7 @@ const optionList = document.querySelector('.option-list');
 const resultBox = document.querySelector('.result-box');
 const tryAgainBtn = document.querySelector('.try-again-btn');
 const homepageBtn = document.querySelector('.homepage-btn');
+const xCloseBtn = document.querySelector('.x-close-btn');
 
 startBtn.onclick = () => {
     popupInfo.classList.add('active');
@@ -51,7 +52,11 @@ tryAgainBtn.onclick = () => {
 homepageBtn.onclick = () => {
     quizSection.classList.remove('active');
     resultBox.classList.remove('active');
-    nextBtn.classList.remove('active');
+}
+
+xCloseBtn.onclick = () => {
+    quizSection.classList.remove('active');
+    resultBox.classList.remove('active');
 }
 
 let questionCount = 0;
