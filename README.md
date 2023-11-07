@@ -6,6 +6,6 @@ HTML, CSS, JavaScript
 
 ## Демонстрация
 <p align="center">
-  <img src="https://github.com/cptntotoro/quiz-website/blob/main/demo.gif?raw=true" />
+  <img src="https://github.com/cptntotoro/quiz-website/blob/master/demo.gif?raw=true" />
 </p>
 
